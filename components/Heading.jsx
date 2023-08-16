@@ -5,14 +5,23 @@ import { Typography } from '@material-ui/core'
 
 const Heading = () => {
   return (
-    <header style={{ flex: 1, width: '100%', marginTop: 10 }}>
+    <header style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1,
+      width: '100%',
+      marginTop: 0
+    }}
+    >
       <Typography
         variant='h1'
         style={{ fontSize: 35, width: '100%', textAlign: 'center' }}
       >
-        <Logo text='Direct links' /> for Youtube's
+        <Logo text='YouTube' /> Descript
       </Typography>
-      <DescriptionIcons />Des
+      <DescriptionIcons />
       <Search />
     </header>
   )
