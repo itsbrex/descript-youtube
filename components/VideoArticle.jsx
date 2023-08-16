@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 import SubtitleFileLinks from './video/SubtitleFileLinks'
 import Keywords from './video/Keywords'
 import Video from './video/Video'

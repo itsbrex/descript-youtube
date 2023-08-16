@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider, createTheme, adaptV4Theme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Switch from '@mui/material/Switch';
 import { red } from '@mui/material/colors';
@@ -59,7 +59,7 @@ const themeSettings = {
 	},
 };
 
-const lightTheme = createTheme({
+const lightTheme = createTheme(adaptV4Theme({
 	...themeSettings,
 	palette: {
 		...themeSettings.palette,
@@ -68,9 +68,9 @@ const lightTheme = createTheme({
 			default: '#fff',
 		},
 	},
-});
+}));
 
-const darkTheme = createTheme({
+const darkTheme = createTheme(adaptV4Theme({
 	...themeSettings,
 	palette: {
 		...themeSettings.palette,
@@ -79,7 +79,7 @@ const darkTheme = createTheme({
 			default: '#12100f',
 		},
 	},
-});
+}));
 
 export default function MyApp(props) {
 	const { Component, pageProps } = props;
@@ -95,12 +95,14 @@ export default function MyApp(props) {
 	}, []);
 
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-			<div className={classes.root}>
-				<Component {...pageProps} />
-			</div>
-		</ThemeProvider>
-	);
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+                <div className={classes.root}>
+                    <Component {...pageProps} />
+                </div>
+            </ThemeProvider>
+        </StyledEngineProvider>
+    );
 }

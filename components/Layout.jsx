@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core'
+import { Container } from '@mui/material'
 import Heading from './Heading'
 import Footer from './Footer'
 import Head from './Head'

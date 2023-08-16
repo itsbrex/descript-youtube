@@ -1,5 +1,5 @@
-import { IconButton } from '@material-ui/core'
-import { GitHub as GitHubIcon } from '@material-ui/icons'
+import { IconButton } from '@mui/material'
+import { GitHub as GitHubIcon } from '@mui/icons-material'
 
 const Footer = () => {
   return (
@@ -8,11 +8,11 @@ const Footer = () => {
         href='https://github.com/itsbrex/DescriptTube'
         target='_blank'
         rel='noopener noreferrer'
-      >
+        size="large">
         <GitHubIcon />{' '}
       </IconButton>
     </footer>
-  )
+  );
 }
 
 export default Footer

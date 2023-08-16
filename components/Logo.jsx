@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import makeStyles from '@mui/styles/makeStyles';
 import Link from 'next/link'
 
 const useStyles = makeStyles(theme => ({

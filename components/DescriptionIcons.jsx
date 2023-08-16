@@ -1,11 +1,11 @@
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 import {
   Subtitles as SubtitlesIcon,
   OndemandVideo as VideoIcon,
   MusicVideo as AudioIcon,
   Image as ThumbnailIcon
-} from '@material-ui/icons'
-import { makeStyles } from '@material-ui/core/styles'
+} from '@mui/icons-material'
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'row',
     justifyContent: 'center',
     margin: '0 10px', // Added margin
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '34%'
     }
   },

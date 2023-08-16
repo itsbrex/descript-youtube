@@ -1,7 +1,7 @@
 import Search from '../components/Search'
 import Logo from './Logo'
 import DescriptionIcons from './DescriptionIcons'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 
 const Heading = () => {
   return (

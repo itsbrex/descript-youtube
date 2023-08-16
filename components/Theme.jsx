@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, StyledEngineProvider, adaptV4Theme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 import { CssBaseline, Switch } from '@mui/material';
 
 // Create a theme instance.
-const lightTheme = createTheme({
+const lightTheme = createTheme(adaptV4Theme({
   palette: {
     mode: 'light',
     primary: {
@@ -31,9 +31,9 @@ const lightTheme = createTheme({
       }
     }
   }
-});
+}));
 
-const darkTheme = createTheme({
+const darkTheme = createTheme(adaptV4Theme({
   palette: {
     mode: 'dark',
     primary: {
@@ -60,18 +60,20 @@ const darkTheme = createTheme({
       }
     }
   }
-});
+}));
 
 const Theme = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true); // dark mode by default
   const theme = darkMode ? darkTheme : lightTheme;
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-      {children}
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+        {children}
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

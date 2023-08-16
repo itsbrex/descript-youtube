@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import InputBase from '@material-ui/core/InputBase'
-import IconButton from '@material-ui/core/IconButton'
-import ClearIcon from '@material-ui/icons/Clear'
-import EnterIcon from '@material-ui/icons/ChangeHistory'
-import LinearProgress from '@material-ui/core/LinearProgress'
+import makeStyles from '@mui/styles/makeStyles';
+import InputBase from '@mui/material/InputBase'
+import IconButton from '@mui/material/IconButton'
+import ClearIcon from '@mui/icons-material/Clear'
+import EnterIcon from '@mui/icons-material/ChangeHistory'
+import LinearProgress from '@mui/material/LinearProgress'
 import ytdl from 'ytdl-core'
 import { useRouter } from 'next/router'
 
@@ -81,13 +81,13 @@ export default function CustomizedInputBase() {
   )
 
   const EnterButton = () => (
-    <IconButton aria-label='search' type='submit'>
+    <IconButton aria-label='search' type='submit' size="large">
       <EnterIcon color='primary' style={{ transform: 'rotate(90deg)' }} />
     </IconButton>
   )
 
   const ClearButton = () => (
-    <IconButton aria-label='clear' onClick={onSearchClear}>
+    <IconButton aria-label='clear' onClick={onSearchClear} size="large">
       <ClearIcon style={{ fontSize: 18 }} />
     </IconButton>
   )

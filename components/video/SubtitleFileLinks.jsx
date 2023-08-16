@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, List, ListItem, ListItemAvatar, Avatar, Grid, Button } from '@material-ui/core'
+import { Box, List, ListItem, ListItemAvatar, Avatar, Grid, Button } from '@mui/material'
 
 function SubtitleFileLinks({ captionTracks }) {
   const handleCopy = async (event, url, withTimestamp) => {
