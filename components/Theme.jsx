@@ -19,6 +19,15 @@ const lightTheme = createMuiTheme({
     background: {
       default: '#fff'
     }
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*::-webkit-scrollbar': {
+          visibility: 'hidden !important'
+        }
+      }
+    }
   }
 })
 
@@ -37,13 +46,22 @@ const darkTheme = createMuiTheme({
     background: {
       default: '#12100f'
     }
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*::-webkit-scrollbar': {
+          visibility: 'hidden !important'
+        }
+      }
+    }
   }
 })
 
 const Theme = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true); // dark mode by default
   const theme = darkMode ? darkTheme : lightTheme;
-  
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
