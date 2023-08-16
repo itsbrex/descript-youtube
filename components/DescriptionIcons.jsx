@@ -42,7 +42,7 @@ const DescriptionIcons = () => {
   const descriptionIconArray = [
     { text: 'video', icon: <VideoIcon /> },
     { text: 'audio', icon: <AudioIcon /> },
-    { text: 'subtitles', icon: <SubtitlesIcon /> },
+    { text: 'transcript', icon: <SubtitlesIcon /> },
     { text: 'thumbnails', icon: <ThumbnailIcon /> }
   ]
 
