@@ -36,3 +36,4 @@ yarn-error.log*
 .history
 .vscode
 pnpm-lock.yaml
+notes

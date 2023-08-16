@@ -10,7 +10,7 @@ const Layout = ({ children, headProps = {} }) => {
       <Head {...headProps} />
 
       <Container
-        maxWidth='sm'
+        maxWidth='lg'
         style={{
           display: 'flex',
           flexDirection: 'column',
