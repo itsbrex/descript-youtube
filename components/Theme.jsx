@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { red } from '@material-ui/core/colors'
-import { CssBaseline, Switch } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { red } from '@mui/material/colors';
+import { CssBaseline, Switch } from '@mui/material';
 
 // Create a theme instance.
-const lightTheme = createMuiTheme({
+const lightTheme = createTheme({
   palette: {
-    type: 'light',
+    mode: 'light',
     primary: {
       main: '#004ecc'
     },
@@ -14,26 +14,28 @@ const lightTheme = createMuiTheme({
       main: '#19857b'
     },
     error: {
-      main: red.A400
+      main: red[500]
     },
     background: {
       default: '#fff'
     }
   },
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      '@global': {
-        '*::-webkit-scrollbar': {
-          visibility: 'hidden !important'
+      styleOverrides: {
+        '@global': {
+          '*::-webkit-scrollbar': {
+            visibility: 'hidden !important'
+          }
         }
       }
     }
   }
-})
+});
 
-const darkTheme = createMuiTheme({
+const darkTheme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#004ecc'
     },
@@ -41,22 +43,24 @@ const darkTheme = createMuiTheme({
       main: '#19857b'
     },
     error: {
-      main: red.A400
+      main: red[500]
     },
     background: {
       default: '#12100f'
     }
   },
-  overrides: {
+  components: {
     MuiCssBaseline: {
-      '@global': {
-        '*::-webkit-scrollbar': {
-          visibility: 'hidden !important'
+      styleOverrides: {
+        '@global': {
+          '*::-webkit-scrollbar': {
+            visibility: 'hidden !important'
+          }
         }
       }
     }
   }
-})
+});
 
 const Theme = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true); // dark mode by default
@@ -69,6 +73,6 @@ const Theme = ({ children }) => {
       {children}
     </ThemeProvider>
   );
-}
+};
 
-export default Theme
+export default Theme;

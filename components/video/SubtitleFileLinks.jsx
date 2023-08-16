@@ -1,8 +1,8 @@
 import React from 'react'
-import { List, ListItem, ListItemAvatar, Avatar, Grid } from '@material-ui/core'
+import { List, ListItem, ListItemAvatar, Avatar, Grid, Button } from '@material-ui/core'
 
 function SubtitleFileLinks({ captionTracks }) {
-  const handleClick = async (event, url) => {
+  const handleCopy = async (event, url, withTimestamp) => {
     event.preventDefault();
     try {
       const response = await fetch(`${url}&fmt=vtt`);
@@ -12,16 +12,18 @@ function SubtitleFileLinks({ captionTracks }) {
       const lines = text.split('\n').slice(3);
       text = lines.join('\n');
 
-      // Remove timestamps
-      const patternTimestamps = /(\d{2}:\d{2}:\d{2}\.\d{3} ?--> ?\d{2}:\d{2}:\d{2}\.\d{3} ?(align:start )?(position:0% )?|\d{2}:\d{2}:\d{2}\.\d{3})/g;
-      const cleanedText1 = text.replace(patternTimestamps, '');
+      if (!withTimestamp) {
+        // Remove timestamps
+        const patternTimestamps = /(\d{2}:\d{2}:\d{2}\.\d{3} ? --> ?\d{2}:\d{2}:\d{2}\.\d{3} ?(align:start )?(position:0% )?|\d{2}:\d{2}:\d{2}\.\d{3})/g;
+        text = text.replace(patternTimestamps, '');
+      }
 
       // Remove remaining tags and "position:0%"
       const patternTags = /(<c>)|(<\/c>)|(<>)|(position:0%)/g;
-      const cleanedText2 = cleanedText1.replace(patternTags, '');
+      const cleanedText = text.replace(patternTags, '');
 
       // Remove duplicate consecutive lines
-      const lines2 = cleanedText2.split('\n');
+      const lines2 = cleanedText.split('\n');
       let prevLine = '';
       let finalText = '';
 
@@ -43,26 +45,27 @@ function SubtitleFileLinks({ captionTracks }) {
     <List>
       <Grid container>
         {captionTracks.map((elem, index) => {
-          const {
-            baseUrl,
-            languageCode,
-            name: { simpleText: label }
-          } = elem
+          const { baseUrl, languageCode, name: { simpleText: label } } = elem;
           return (
-            <Grid key={`subtitles-${label}-${index}`} item md={4} xs={6}>
+            <Grid key={`subtitles-${label}-${index}`} item md={12} xs={6}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar color='primary'>{languageCode}</Avatar>
                 </ListItemAvatar>
-                <a
-                  href={`${baseUrl}&fmt=vtt`}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  onClick={(event) => handleClick(event, baseUrl)}
-                  style={{ color: '#0062ff' }}
+                <Button
+                  variant="contained" 
+                  color="primary"
+                  onClick={(event) => handleCopy(event, baseUrl, true)}
                 >
-                  {label}
-                </a>
+                  {`Copy ${label} with timestamps`}
+                </Button>
+                <Button
+                  variant="contained" 
+                  color="primary"
+                  onClick={(event) => handleCopy(event, baseUrl, false)}
+                >
+                  {`Copy ${label} without timestamps`}
+                </Button>
               </ListItem>
             </Grid>
           )
