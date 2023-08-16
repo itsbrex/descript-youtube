@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider, createTheme, makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Switch from '@material-ui/core/Switch';
-import red from '@material-ui/core/colors/red';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Switch from '@mui/material/Switch';
+import { red } from '@mui/material/colors';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
