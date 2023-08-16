@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, ListItem, ListItemAvatar, Avatar, Grid, Button } from '@material-ui/core'
+import { Box, List, ListItem, ListItemAvatar, Avatar, Grid, Button } from '@material-ui/core'
 
 function SubtitleFileLinks({ captionTracks }) {
   const handleCopy = async (event, url, withTimestamp) => {
@@ -44,35 +44,38 @@ function SubtitleFileLinks({ captionTracks }) {
   return (
     <List>
       <Grid container>
-        {captionTracks.map((elem, index) => {
-          const { baseUrl, languageCode, name: { simpleText: label } } = elem;
-          return (
-            <Grid key={`subtitles-${label}-${index}`} item md={12} xs={6}>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar color='primary'>{languageCode}</Avatar>
-                </ListItemAvatar>
+        {captionTracks.map(({ baseUrl, languageCode, name: { simpleText: label } }, index) => 
+          <Grid key={`subtitles-${label}-${index}`} item md={12} xs={6}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar color='primary'>{languageCode}</Avatar>
+              </ListItemAvatar>
+              <Box mr={2}>
                 <Button
                   variant="contained" 
                   color="primary"
+                  size="small"
                   onClick={(event) => handleCopy(event, baseUrl, true)}
                 >
-                  {`Copy ${label} with timestamps`}
+                  {`Synced Timestamps`}
                 </Button>
+              </Box>
+              <Box>
                 <Button
                   variant="contained" 
                   color="primary"
+                  size="small"
                   onClick={(event) => handleCopy(event, baseUrl, false)}
                 >
-                  {`Copy ${label} without timestamps`}
+                  {`No Timestamps`}
                 </Button>
-              </ListItem>
-            </Grid>
-          )
-        })}
+              </Box>
+            </ListItem>
+          </Grid>
+        )}
       </Grid>
     </List>
-  )
+  );
 }
 
 export default SubtitleFileLinks
