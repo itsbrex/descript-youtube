@@ -3,10 +3,10 @@ import Layout from '../components/Layout'
 export default function Home() {
   const headProps = {
     title:
-      'Youtube downloader for its videos, audios, subtitles and thumbnails',
+      'Descript - Seamless YouTube Video and Transcript Importing',
     description:
-      'Put link to youtube video and get everything you want from it',
-    keywords: ['youtube', 'downloader', 'next.js', 'opensource', 'aparus'],
+      'Paste a YouTube link to directly import videos and automatically transcribe them. Save time and increase efficiency with Descript.',
+    keywords: ['Descript', 'YouTube', 'import', 'transcription', 'video', 'subtitle', 'audio', 'clip', 'downloader', 'efficiency', 'content creation'],
     image:
       'https://user-images.githubusercontent.com/1222611/92627876-a85ee000-f2d4-11ea-8dbb-14ab4eb0065a.png'
   }
