@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 			bottom: 0,
 			width: 0,
 			height: 0,
-			borderLeft: '20px solid white',
+			borderLeft: `20px solid ${theme.palette.background.default}`,
 			borderTop: '20px solid transparent',
 			borderBottom: '20px solid transparent'
 		},

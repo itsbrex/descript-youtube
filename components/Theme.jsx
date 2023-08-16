@@ -11,7 +11,7 @@ const lightTheme = createTheme({
       main: '#004ecc'
     },
     secondary: {
-      main: '#19857b'
+      main: '#004ecc'
     },
     error: {
       main: red[500]
@@ -40,7 +40,7 @@ const darkTheme = createTheme({
       main: '#004ecc'
     },
     secondary: {
-      main: '#19857b'
+      main: '#004ecc'
     },
     error: {
       main: red[500]
