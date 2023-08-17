@@ -3,6 +3,7 @@
 <img src="https://github.com/itsbrex/descript-youtube/assets/9772694/bf7f7981-8102-481a-96a5-ae77485eb788" align="center" hspace="10" />
 
 <br>
+
 Welcome to Descript-Extractor! It's a powerful tool that provides a seamless and efficient experience for importing and managing media from YouTube. It gives you instant access to YouTube's videos, audio tracks, transcripts/subtitles, and video thumbnails.
 
 Here's what you can do with Descript-YouTube for now:
@@ -42,7 +43,7 @@ And then open [http://localhost:3000](http://localhost:3000) with your browser t
 
 <br>
 
-## 🧭 Routes
+##  Routes
 
 The app has the 4 routes:
 
@@ -55,16 +56,18 @@ The app has the 4 routes:
 
 -  The app is currently in the process of being migrated to use TypeScript + Tailwind + Shadcn UI + Next.js 13 app router structure
 
-# 📜 License
+## 📜 License
 MIT License
-
-# 📜 Credits
-- This project is a from of [direct-link](https://github.com/ApayRus/direct-link) that I am revamping to use a different approach and to add more features. Feature requests are welcome!
 
 <br>
 
+## Credits
+This project is a fork of [direct-link](https://github.com/ApayRus/direct-link) that I am revamping to use a different approach and to add more features. Feature requests are welcome!
 
-# 🎁 Default Next.js README
+<br>
+
+---
+##  🎁 Default Next.js README
 ## Getting Started
 
 Start by running the development server:
