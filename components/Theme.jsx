@@ -14,7 +14,7 @@ const lightTheme = createTheme(adaptV4Theme({
       main: '#004ecc'
     },
     error: {
-      main: red[500]
+      main: '#004ecc'
     },
     background: {
       default: '#fff'
@@ -43,7 +43,7 @@ const darkTheme = createTheme(adaptV4Theme({
       main: '#004ecc'
     },
     error: {
-      main: red[500]
+      main: '#004ecc
     },
     background: {
       default: '#12100f'

@@ -1,6 +1,6 @@
 .thumbnails-container {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 }
@@ -8,55 +8,62 @@
 .thumbnail-item {
 	text-align: center;
 	flex: 1 0 auto;
-	padding: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border: 1px solid #ccc;
 	border-radius: 12px;
 	margin: 10px;
+	transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+	box-shadow: 0px 1px 5px rgba(67, 90, 111, 0.15);
+}
+
+.thumbnail-item:hover {
+	box-shadow: 0px 10px 20px rgba(67, 90, 111, 0.3);
+	transform: scale(1.05);
 }
 
 .thumbnail-dimension {
 	font-size: 16px;
-	color: #fff;
+	color: #333;
 	margin-bottom: 10px;
 }
 
 .thumbnail-image-container {
 	width: 100%;
 	height: auto;
+	position: relative;
+	overflow: hidden;
+	border-radius: 12px;
+	cursor: pointer;
 }
 
 .thumbnail-image {
-	max-width: 100%;
-	height: auto;
-	border-radius: 12px;
+ width: 100%;
+ height: auto;
+ object-fit: cover;
+ transition: transform 0.3s ease-in-out;
 }
 
-.thumbnail-image-container {
-    position: relative;
-    cursor: pointer;
+.thumbnail-image-container:hover .thumbnail-image {
+	transform: scale(1.05);
 }
 
 .download-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 24px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	background: rgba(0,123,255,0.7); /* Customize this color to match your project blue */
+	color: #fff;
+	opacity: 0;
+	border-radius: 12px;
+	transition: opacity 0.3s ease;
 }
 
 .thumbnail-image-container:hover .download-overlay {
-    opacity: 1;
-}
-
-.download-overlay::after {
-    font-family: "Font Awesome"; /* Replace with your preferred icon font family */
-    content: '\f019'; /* Replace with the code for your preferred download icon */
+	opacity: 1;
 }
