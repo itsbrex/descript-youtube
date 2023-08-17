@@ -1,3 +1,4 @@
+import React from 'react'
 import { Typography } from '@mui/material'
 import SubtitleFileLinks from './video/SubtitleFileLinks'
 import Keywords from './video/Keywords'
@@ -15,6 +16,19 @@ const VideoArticle = props => {
 		description,
 		image: poster
 	} = props
+
+	const descriptionWithLinks = React.useMemo(() => {
+		return description.split('\n').map((line, index) => {
+			const match = line.match(/(\d+:\d+)/);
+			if (match) {
+				const time = match[1].split(':').reduce((acc, time) => (60 * acc) + +time);
+				return <p key={index}><a href={`${urlVideo}?t=${time}`}>{line}</a></p>;
+			} else {
+				return <p key={index}>{line}</p>;
+			}
+		});
+	}, [description, urlVideo]);
+
 	return (
 		<article style={{ marginTop: 30 }}>
 			<Typography style={{ fontSize: 40, textAlign: 'center' }} variant='h1'>
@@ -46,12 +60,11 @@ const VideoArticle = props => {
 				Description:
 			</Typography>
 			<p />
-			<Typography
+			<div
 				style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}
-				variant='body2'
 			>
-				{description}
-			</Typography>
+				{descriptionWithLinks}
+			</div>
 			<p />
 		</article>
 	)

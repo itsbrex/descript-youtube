@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: '100%',
+    width: '50%',
     border: `1px solid ${theme.palette.grey[500]}`,
     borderRadius: 15,
     marginTop: 5,

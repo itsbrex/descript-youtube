@@ -20,10 +20,11 @@ function Video({ captionTracks, urlVideo, poster }) {
 	})
 
 	return (
-		<video controls src={urlVideo} poster={poster} style={{ width: '100%' }}>
+		<video controls src={urlVideo} poster={poster} style={{ width: '100%', borderRadius: '14px'}}>
 			{subtitlesTracksForVideo}
 		</video>
 	)
+	
 }
 
 export default Video

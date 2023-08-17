@@ -1,17 +1,18 @@
 import React from 'react'
+import '../../app/Thumbnails.css'
 
 function Thumbnails({ thumbnails }) {
 	return (
-		<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
+		<div className="thumbnails-container">
 			{thumbnails.map((elem, index) => {
 				const { width, height, url } = elem
 				return (
-					<div style={{ textAlign: 'center', flex: '1 0 auto' }} key={`thumbnail-${index}`}>
-						<div style={{ fontSize: 12 }}>
+					<div className="thumbnail-item" key={`thumbnail-${index}`}>
+						<div className="thumbnail-dimension">
 							{width}x{height}
 						</div>
-						<div>
-							<img style={{ maxWidth: 100 }} src={url} alt='thumbnail' />
+						<div className="thumbnail-image-container">
+							<img className="thumbnail-image" src={url} alt='thumbnail' />
 						</div>
 					</div>
 				)

@@ -1,0 +1,32 @@
+.thumbnails-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.thumbnail-item {
+	text-align: center;
+	flex: 1 0 auto;
+	padding: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	margin: 10px;
+}
+
+.thumbnail-dimension {
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.thumbnail-image-container {
+	width: 100%;
+	height: auto;
+}
+
+.thumbnail-image {
+	max-width: 100%;
+	height: auto;
+	border-radius: 12px;
+}

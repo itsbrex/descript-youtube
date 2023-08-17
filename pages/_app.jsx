@@ -18,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
 				visibility: 'hidden !important',
 			},
 		},
+		stickySwitch: {
+			position: 'fixed',
+			top: 0,
+			zIndex: 1,
+	},
 	},
 }));
 
@@ -30,7 +35,7 @@ const themeSettings = {
 			main: '#0062ff',
 		},
 		error: {
-			main: red[500],
+			main: '#0062ff',
 		},
 	},
 	components: {
@@ -98,7 +103,9 @@ export default function MyApp(props) {
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+                <div className={classes.stickySwitch}>
+                    <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+                </div>
                 <div className={classes.root}>
                     <Component {...pageProps} />
                 </div>
