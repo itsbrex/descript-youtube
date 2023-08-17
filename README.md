@@ -1,6 +1,6 @@
 # 📺 Descript-YouTube: Your Ultimate YouTube Media Extractor! 🚀
 
-<img src="https://exampleimage.png" align="right" hspace="10">
+<img src="https://github.com/itsbrex/descript-youtube/assets/9772694/bf7f7981-8102-481a-96a5-ae77485eb788" align="center" hspace="10" />
 
 Welcome to Descript-Extractor! It's a powerful tool that provides a seamless and efficient experience for importing and managing media from YouTube. It gives you instant access to YouTube's videos, audio tracks, transcripts/subtitles, and video thumbnails.
 
@@ -9,7 +9,7 @@ Here's what you get:
 -  `Video`: Extract YouTube videos in mp4 format
 -  `Audio`: Extract and download audio-only
 -  `Transcripts/Subtitles`: Get hold of both English or foreign language subtitles in .vtt format (With timestamps or without timestamps)
--  `Thumbnails`: Download thumbnails to grace your collection, in webp format
+-  `Thumbnails`: Download thumbnails as jpg images using custom API route to bypass CORS restrictions
 
 ---
 
