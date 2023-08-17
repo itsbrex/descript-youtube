@@ -5,7 +5,7 @@
 <br>
 Welcome to Descript-Extractor! It's a powerful tool that provides a seamless and efficient experience for importing and managing media from YouTube. It gives you instant access to YouTube's videos, audio tracks, transcripts/subtitles, and video thumbnails.
 
-Here's what you get:
+Here's what you can do with Descript-YouTube for now:
 
 -  `Video`: Extract YouTube videos in mp4 format
 -  `Audio`: Extract and download audio-only
@@ -14,15 +14,33 @@ Here's what you get:
 
 ---
 
-This project uses [Next.js](https://nextjs.org/), [React.js](https://reactjs.org/), [Material-UI](https://material-ui.com/), and [Node-Ytdl-Core](https://github.com/fent/node-ytdl-core) and is deployed on [Vercel](https://vercel.com/) and is in the process of being migrated to use TypeScript + Tailwind + Shadcn UI + Next.js 13 app router structure and is a fork of the [direct-link](https://github.com/ApayRus/direct-link) project.
+This project uses [Next.js](https://nextjs.org/), [React.js](https://reactjs.org/), [Material-UI](https://material-ui.com/), and [Node-Ytdl-Core](https://github.com/fent/node-ytdl-core) and is deployed on [Vercel](https://vercel.com/) and is in the process of being migrated to use TypeScript + Tailwind + Shadcn UI + Next.js 13 app router structure.
 
 ---
 ## 🛠️ Installation
 
+Descript-YouTube is a project built using Next.js. To get started, run the development server using the following command:
+
 ```bash
-npm install
-npm run dev
+npm i
+# or 
+yarn
+# or
+pnpm i
 ```
+
+Then run:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+And then open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+<br>
 
 ## 🧭 Routes
 
@@ -33,12 +51,20 @@ The app has the 4 routes:
 -  `/api/get-local-images` - This is a custom API route to bypass CORS restrictions and allow downloading thumbnails as jpg images
 -  `/video/videoId`
 
----
+## 📝 Notes
 
-## 🎁 Default Next.js README
+-  The app is currently in the process of being migrated to use TypeScript + Tailwind + Shadcn UI + Next.js 13 app router structure
 
-Descript-YouTube is built by harnessing the powers of [Next.js](https://nextjs.org/). It's kickstarted with the robust [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) boilerplate.
+# 📜 License
+MIT License
 
+# 📜 Credits
+- This project is a from of [direct-link](https://github.com/ApayRus/direct-link) that I am revamping to use a different approach and to add more features. Feature requests are welcome!
+
+<br>
+
+
+# 🎁 Default Next.js README
 ## Getting Started
 
 Start by running the development server:
@@ -49,7 +75,7 @@ npm run dev
 yarn dev
 ```
 
-Just open [http://localhost:3000](http://localhost:3000) in your favourite browser to witness the magic.
+Then open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 Feel free to start editing the page by tweaking `pages/index.js`. The page auto-refreshes as you make changes.
 
@@ -64,7 +90,6 @@ Don't hesitate to visit [the Next.js GitHub repository](https://github.com/verce
 
 ## 🚀 Deploy on Vercel
 
-[Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) offers the smoothest experience to deploy your Next.js app. It's from the same talented creators who brought you Next.js!
+[Vercel Platform](https://vercel.com/import) offers the smoothest experience to deploy your Next.js app. It's from the same talented team who brought you Next.js!
 
 Check out the comprehensive [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more insights.
-```
