@@ -67,7 +67,7 @@ const lightTheme = createTheme(adaptV4Theme({
 	...themeSettings,
 	palette: {
 		...themeSettings.palette,
-		type: 'light',
+		mode: 'light',
 		background: {
 			default: '#fff',
 		},
@@ -78,7 +78,7 @@ const darkTheme = createTheme(adaptV4Theme({
 	...themeSettings,
 	palette: {
 		...themeSettings.palette,
-		type: 'dark',
+		mode: 'dark',
 		background: {
 			default: '#12100f',
 		},
