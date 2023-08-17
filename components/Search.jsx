@@ -5,6 +5,8 @@ import IconButton from '@mui/material/IconButton'
 import ClearIcon from '@mui/icons-material/Clear'
 import EnterIcon from '@mui/icons-material/ChangeHistory'
 import LinearProgress from '@mui/material/LinearProgress'
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box'; 
 import ytdl from 'ytdl-core'
 import { useRouter } from 'next/router'
 
@@ -13,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: '50%',
+    width: '100%',
     border: `1px solid ${theme.palette.grey[500]}`,
     borderRadius: 15,
     marginTop: 5,
@@ -107,8 +109,12 @@ export default function CustomizedInputBase() {
   )
 
   return (
+    <Container maxWidth="sm">
+      <Box className={classes.boxContainer} mt={2}>
     <form onSubmit={onSubmit} className={classes.form}>
       {isLoading ? <LoadingIndicator /> : <SearchInput />}
     </form>
+    </Box>
+    </Container>
   )
 }

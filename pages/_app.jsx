@@ -6,25 +6,21 @@ import { red } from '@mui/material/colors';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
-	root: {
-		scrollbar: {
-			'*::-webkit-scrollbar': {
-				width: '0px',
-			},
-			'*::-webkit-scrollbar-thumb': {
-				background: 'transparent',
-			},
-			'*::-webkit-scrollbar': {
-				visibility: 'hidden !important',
-			},
+	'@global': {
+		'*::-webkit-scrollbar': {
+			width: '0px',
 		},
-		stickySwitch: {
-			position: 'fixed',
-			top: 0,
-			zIndex: 1,
+		'*::-webkit-scrollbar-thumb': {
+			background: 'transparent',
+		},
+		'*::-webkit-scrollbar': {
+			visibility: 'hidden !important',
+		},
 	},
-	},
+	root: {},
+	switch: {},
 }));
+
 
 const themeSettings = {
 	palette: {
@@ -54,15 +50,18 @@ const themeSettings = {
 		},
 		MuiCssBaseline: {
 			styleOverrides: {
-				'@global': {
-					'*::-webkit-scrollbar': {
-						visibility: 'hidden !important',
-					},
+					'@global': {
+						'*::-webkit-scrollbar': {
+							width: '0px',
+							visibility: 'hidden',
+							background: 'transparent',
+						},
 				},
 			},
 		},
-	},
+	}
 };
+
 
 const lightTheme = createTheme(adaptV4Theme({
 	...themeSettings,
@@ -93,23 +92,23 @@ export default function MyApp(props) {
 	const classes = useStyles(theme);
 
 	useEffect(() => {
-		const jssStyles = document.querySelector('#jss-server-side');
-		if (jssStyles) {
-			jssStyles.parentElement.removeChild(jssStyles);
-		}
+			const jssStyles = document.querySelector('#jss-server-side');
+			if (jssStyles) {
+					jssStyles.parentElement.removeChild(jssStyles);
+			}
 	}, []);
 
 	return (
-        <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <div className={classes.stickySwitch}>
-                    <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-                </div>
-                <div className={classes.root}>
-                    <Component {...pageProps} />
-                </div>
-            </ThemeProvider>
-        </StyledEngineProvider>
-    );
+			<StyledEngineProvider injectFirst>
+					<ThemeProvider theme={theme}>
+							<CssBaseline />
+							<div className={classes.root}>
+									<div className={classes.switch}>
+										<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+									</div>
+									<Component {...pageProps} />
+							</div>
+					</ThemeProvider>
+			</StyledEngineProvider>
+	);
 }
