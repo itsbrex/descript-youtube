@@ -2,6 +2,7 @@
 
 <img src="https://github.com/itsbrex/descript-youtube/assets/9772694/bf7f7981-8102-481a-96a5-ae77485eb788" align="center" hspace="10" />
 
+<br>
 Welcome to Descript-Extractor! It's a powerful tool that provides a seamless and efficient experience for importing and managing media from YouTube. It gives you instant access to YouTube's videos, audio tracks, transcripts/subtitles, and video thumbnails.
 
 Here's what you get:
@@ -13,7 +14,7 @@ Here's what you get:
 
 ---
 
-This project uses [Next.js](https://nextjs.org/), [React.js](https://reactjs.org/), [Material-UI](https://material-ui.com/), and [Node-Ytdl-Core](https://github.com/fent/node-ytdl-core) and is deployed on [Vercel](https://vercel.com/) and is in the process of being migrated to use TypeScript + Tailwind + Next.js 13 app router structure and is a fork of the [direct-link](https://github.com/ApayRus/direct-link) project.
+This project uses [Next.js](https://nextjs.org/), [React.js](https://reactjs.org/), [Material-UI](https://material-ui.com/), and [Node-Ytdl-Core](https://github.com/fent/node-ytdl-core) and is deployed on [Vercel](https://vercel.com/) and is in the process of being migrated to use TypeScript + Tailwind + Shadcn UI + Next.js 13 app router structure and is a fork of the [direct-link](https://github.com/ApayRus/direct-link) project.
 
 ---
 ## 🛠️ Installation
@@ -25,15 +26,16 @@ npm run dev
 
 ## 🧭 Routes
 
-The app has the 3 routes:
+The app has the 4 routes:
 
 -  `/api/all-info/videoId`
 -  `/api/video/videoId`
+-  `/api/get-local-images` - This is a custom API route to bypass CORS restrictions and allow downloading thumbnails as jpg images
 -  `/video/videoId`
 
 ---
 
-## 🎁 Bonus: Default Next.js README
+## 🎁 Default Next.js README
 
 Descript-YouTube is built by harnessing the powers of [Next.js](https://nextjs.org/). It's kickstarted with the robust [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) boilerplate.
 
