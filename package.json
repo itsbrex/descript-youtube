@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "fsevents": "^2.3.2",
+    "globx": "^1.0.16",
     "lucide-react": "^0.268.0",
     "micro": "^10.0.1",
     "next": "^13.4.16",
