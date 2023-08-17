@@ -1,14 +1,15 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import { newStore } from 'globx';
+import React, { useState, useEffect, Fragment } from 'react';
 import makeStyles from '@mui/styles/makeStyles';
-import InputBase from '@mui/material/InputBase'
-import IconButton from '@mui/material/IconButton'
-import ClearIcon from '@mui/icons-material/Clear'
-import EnterIcon from '@mui/icons-material/ChangeHistory'
-import LinearProgress from '@mui/material/LinearProgress'
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
+import EnterIcon from '@mui/icons-material/ChangeHistory';
+import LinearProgress from '@mui/material/LinearProgress';
 import Container from '@mui/material/Container';
-import Box from '@mui/material/Box'; 
-import ytdl from 'ytdl-core'
-import { useRouter } from 'next/router'
+import Box from '@mui/material/Box';
+import ytdl from 'ytdl-core';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles(theme => ({
   form: {
@@ -38,41 +39,50 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const myStore = newStore({
+  url: '',
+  isLoading: false
+});
+
 export default function CustomizedInputBase() {
-  const classes = useStyles()
-  const [url, setUrl] = useState('')
-  const [isLoading, setIsLoading] = useState()
-  const router = useRouter()
+  const classes = useStyles();
+  const store = myStore;
+  const router = useRouter();
 
   const onSearchChange = event => {
-    setUrl(event.target.value)
+    store.url = event.target.value;
   }
 
   const onSearchClear = () => {
-    setUrl('')
+    store.url = '';
   }
 
   const onSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const videoId = ytdl.getVideoID(url)
-      router.push(`/video/[videoId]`, `/video/${videoId}`)
+      const videoId = ytdl.getVideoID(store.url);
+      router.push(`/video/[videoId]`, `/video/${videoId}`);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
 
   useEffect(() => {
-    //possible params: (url, { shallow })
-    const handleRouteChangeStart = () => setIsLoading(true)
-    const handleRouteChangeComplete = () => setIsLoading(false)
+    const handleRouteChangeStart = () => {
+      store.isLoading = true;
+      store.updateStore();
+    }
+    const handleRouteChangeComplete = () => {
+      store.isLoading = false;
+      store.updateStore();
+    }
 
-    router.events.on('routeChangeStart', handleRouteChangeStart)
-    router.events.on('routeChangeComplete', handleRouteChangeComplete)
+    router.events.on('routeChangeStart', handleRouteChangeStart);
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
     return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart)
-      router.events.off('routeChangeComplete', handleRouteChangeComplete)
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
     }
   }, [])
 
@@ -101,7 +111,7 @@ export default function CustomizedInputBase() {
         placeholder='Paste YouTube URL or video ID here'
         inputProps={{ 'aria-label': 'get video id' }}
         onChange={onSearchChange}
-        value={url}
+        value={store.url}
       />
       <ClearButton />
       <EnterButton />
@@ -111,10 +121,10 @@ export default function CustomizedInputBase() {
   return (
     <Container maxWidth="sm">
       <Box className={classes.boxContainer} mt={2}>
-    <form onSubmit={onSubmit} className={classes.form}>
-      {isLoading ? <LoadingIndicator /> : <SearchInput />}
-    </form>
-    </Box>
+        <form onSubmit={onSubmit} className={classes.form}>
+          {store.isLoading ? <LoadingIndicator /> : <SearchInput />}
+        </form>
+      </Box>
     </Container>
   )
 }
